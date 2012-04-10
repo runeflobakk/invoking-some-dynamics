@@ -29,10 +29,12 @@ __Scala &amp; JVM__
 
 
 ---
-
+.center.middle
 #invokedynamic
 
-- ny bytecode-instruksjon
+----
+
+ny bytecode-instruksjon
 
 
 ---
@@ -41,14 +43,20 @@ __Scala &amp; JVM__
 
 Hvorfor lurer vi på dette?
 
+
+
+
+
 ---
-
-
+.center.middle
 # invokevirtual
 
-- vanlig metodekall på et objekt
+----
+
+vanlig metodekall på et objekt
 
 ---
+
 
 # invokevirtual
 
@@ -79,21 +87,48 @@ Hva er utfordringen med dynamisk typede språk på JVM?
 
 ---
 
-# Bytekoden har kjennskap til:
+# invokevirtual
 
-- objektets klasse (referansetype)
-- metodenavn og argumenter
+    INVOKEVIRTUAL KillerApp.getAwesomeText(I)Ljava/lang/String;
+
+Bytekoden må vite om:
+
+- objektets klasse (referansetypen)
+- metodenavn
+- antall argumenter og klassene deres
 - returtype (?)
 
 
 ---
 
+# invokevirtual
+
+    INVOKEVIRTUAL KillerApp.getAwesomeText(I)Ljava/lang/String;
+
+JVM stoler ikke på kompilert kode!
+
+- sjekker at metode faktisk er definert av den statiske typen til mottakerobjektet
 
 
+
+---
+.center.middle
+#invokedynamic
+
+----
+
+Tam-tara-taaaa!
+
+
+---
 
 # invokedynamic
 
-- trenger object, metodenavn, parameter bundle
+Bytekode må vite om
+
+- objectreferanse
+- metodenavn
+- parameter bundle
 
 ---
 
