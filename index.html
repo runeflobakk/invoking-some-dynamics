@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>    
-    <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>   
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Sorts+Mill+Goudy' rel='stylesheet' type='text/css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./bekk/style.css' />
 
@@ -22,7 +22,7 @@
 .center.middle
 # Invoking Some Dynamics
 
-__Scala & JVM__
+__Scala &amp; JVM__
 
 [@miss_haugen](http://twitter.com/miss_haugen) | [@rflob](http://twitter.com/rflob)
 
@@ -35,16 +35,87 @@ __Scala & JVM__
 
 ---
 
+.center.middle
+
+Hvorfor lurer vi på dette?
+
+
+---
+
+#invokedynamic
+
+- ny bytecode-instruksjon
+
+
+---
+
+# invokevirtual
+
+- vanlig metodekall på et objekt
+
+---
+
+# invokevirtual
+
+
+    public static void main(String ... args) {
+        KillerApp app = new InsaneApp();
+        String text = app.getAwesomeText(1);
+    }
+
+----
+
+
+    NEW InsaneApp
+    DUP
+    INVOKESPECIAL InsaneApp.&lt;init&gt;()V
+    ASTORE 1
+
+    ALOAD 1
+    ICONST_1
+    INVOKEVIRTUAL KillerApp.getAwesomeText(I)Ljava/lang/String;
+    ASTORE 2
+
+---
+
+.center.middle
+
+Hva er utfordringen med dynamisk typede språk på JVM?
+
+---
+
+# Bytekoden har kjennskap til:
+
+- objektets klasse (referansetype)
+- metodenavn og argumenter
+- returtype (?)
+
+
+---
+
+
+
+
 # invokedynamic
 
+- trenger object, metodenavn, parameter bundle
 
+---
 
+# invokedynamic
+
+Eksempelkode
 
 
 
 ---
+
+# Kritikk?
+
+
+---
 .center.middle
-# Oracle Is Your Friend!
+# Oracle Is Everyones Friend!
 
 Yes really!
 
