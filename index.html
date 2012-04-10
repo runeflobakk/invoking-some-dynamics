@@ -134,9 +134,28 @@ Bytekode må vite om
 
 # invokedynamic
 
-Eksempelkode
+    INVOKEDYNAMIC &lt;method-specification&gt; &lt;n&gt;
+
+- method-specification: metodenavn, argumenttyper, og returtype
 
 
+---
+
+# invokedynamic
+
+Viser seg å være noe komplisert...
+
+1. første invokedynamic fører til et kall til "bootstrap-metode" som gjør selve resolvingen til faktisk metode
+2. senere kall til samme invokedynamic gjenbruker resultatet fra bootstrap-metoden
+
+---
+
+# invokedynamic
+
+- pakken java.dyn
+- MethodHandle, anonym referanse til en JVM-metode
+- Bootstrap Method: muliggjør deltagelse av språk-runtime til å delta i selve dispatchingen av metodekall.
+  I tillegg kan JVM se bort fra språk-runtimen dersom dispatch ikke endres.
 
 ---
 
